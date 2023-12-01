@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="500.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.messenger.HelloController">
+   <children>
+      <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="50.0" prefWidth="300.0" spacing="10.0" style="-fx-background-color: pink;">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <children>
+            <FontAwesomeIconView glyphName="ARROW_LEFT" size="18" />
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+            <Label prefHeight="17.0" prefWidth="132.0" text="UserName">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="84.0" spacing="20.0">
+               <children>
+                  <FontAwesomeIconView glyphName="VIDEO_CAMERA" size="18" />
+                  <FontAwesomeIconView glyphName="PHONE" size="18" />
+               </children>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <VBox fx:id="messageList" alignment="BOTTOM_RIGHT" fillWidth="false" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: #242526;" VBox.vgrow="ALWAYS">
+         <padding>
+            <Insets bottom="20.0" right="5.0" />
+         </padding>
+      </VBox>
+      <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="50.0" prefWidth="300.0" spacing="10.0" style="-fx-background-color: lightblue;">
+         <children>
+            <FontAwesomeIconView glyphName="IMAGE" size="20" />
+            <FontAwesomeIconView glyphName="MICROPHONE" size="20" />
+            <TextArea fx:id="inputMessage" maxHeight="-Infinity" pickOnBounds="false" prefHeight="30.0" prefWidth="200.0" wrapText="true" />
+            <FontAwesomeIconView glyphName="SEND" onMouseClicked="#sendMessage" size="20" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
