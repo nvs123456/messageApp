@@ -6,7 +6,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -38,18 +37,14 @@
             <Insets bottom="10.0" left="10.0" top="10.0" />
          </padding>
       </HBox>
-      <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" minViewportHeight="1.0" prefHeight="391.3" prefViewportHeight="1.0" prefWidth="300.0" vvalue="1.0">
-        <content>
-          <AnchorPane fx:id="anchorPane" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="391.3" prefWidth="285.0">
-               <children>
-                  <VBox fx:id="messageList" alignment="BOTTOM_RIGHT" fillWidth="false" maxHeight="1.7976931348623157E308" prefHeight="391.3" prefWidth="285.0" spacing="10.0" style="-fx-background-color: #242526;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <padding>
-                        <Insets bottom="20.0" right="10.0" />
-                     </padding>
-                  </VBox>
-               </children>
-            </AnchorPane>
-        </content>
+      <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" minViewportHeight="1.0" onScroll="#loadHistory" prefHeight="391.3" prefViewportHeight="1.0" prefWidth="300.0" vvalue="1.0">
+         <content>
+            <VBox fx:id="messageList" alignment="BOTTOM_RIGHT" fillWidth="false" maxHeight="1.7976931348623157E308" prefHeight="1000.0" prefWidth="287.0" spacing="8.0" style="-fx-background-color: #242526;">
+               <padding>
+                  <Insets bottom="20.0" right="10.0" />
+               </padding>
+            </VBox>
+         </content>
       </ScrollPane>
       <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="50.0" prefWidth="300.0" spacing="10.0" style="-fx-background-color: lightblue;">
          <children>

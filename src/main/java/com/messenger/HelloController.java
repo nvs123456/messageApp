@@ -2,6 +2,7 @@ package com.messenger;
 
 import de.jensd.fx.glyphs.fontawesome.*;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -37,12 +38,15 @@ public class HelloController implements Initializable {
     private ScrollPane scrollPane;
     @FXML
     private AnchorPane anchorPane;
+    private LinkedList<Label> history=new LinkedList<>();
     @FXML
     protected void sendMessage(MouseEvent event) {
         String message = inputMessage.getText();
         totalHeightOfMessage+=getHeightOfMessage(message);
-        if(totalHeightOfMessage>anchorPane.getHeight()){
-            anchorPane.setPrefHeight(totalHeightOfMessage+15);
+        while (totalHeightOfMessage>messageList.getHeight()){
+            Label tmp = (Label) messageList.getChildren().get(0);
+            totalHeightOfMessage-=tmp.getHeight();
+            history.addLast((Label) messageList.getChildren().remove(0));
         }
         inputMessage.setText("");
         Label sentMessage = new Label(message);
@@ -74,6 +78,14 @@ public class HelloController implements Initializable {
                 "-fx-font-weight:700;");
         message.setMaxWidth(200);
         message.setMinHeight(34);
+    }
+    @FXML
+    protected void loadHistory(){
+        if(scrollPane.getVvalue()==0){
+            while(!history.isEmpty()){
+                messageList.getChildren().add(0,history.removeLast());
+            }
+        }
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
